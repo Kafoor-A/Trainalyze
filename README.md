@@ -45,7 +45,7 @@ It identifies workout types, tracks performance, and provides progress data for 
 ### Setup Steps
 ```bash
 # Clone the repository
-git clone https://github.com/Kafoor-A/Trainalyze.git
+git https://github.com/Kafoor-A/Trainalyze.git
 cd Trainalyze
 
 # Create a virtual environment
