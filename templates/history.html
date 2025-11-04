@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise History</title>
+    <style>
+        body {
+            background-image: url('static/home.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            position: relative; 
+            background: rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(10px); 
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 800px;
+            overflow: hidden; 
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .back-link {
+		  display: inline-block;
+		  padding: 8px 16px;
+		  background-color: #4CAF50; /* Green background */
+		  color: white;
+		  text-decoration: none;
+		  border-radius: 8px;
+		  font-weight: 500;
+		  transition: background-color 0.3s ease;
+		  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+		  position: absolute;
+          top: 20px; 
+          left: 20px; 
+            
+		}
+
+		.back-link:hover {
+		  background-color: #45a049;
+		  text-decoration: none;
+		}				
+
+
+        form {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 60%; 
+            margin-right: 10px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .table-container {
+            background: rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(10px); 
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        tr:hover td {
+            background-color: #f1f1f1; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <a href="/dashboard" class="back-link">Back</a> 
+    
+    <div class="container">
+        <h2>Exercise History</h2>
+
+        <form action="/history" method="GET">
+            <input type="text" name="name" placeholder="Enter Name">
+            <button type="submit">Search</button>
+            <a href="/history"><button type="button">Show All</button></a>
+        </form>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Exercise Type</th>
+                        <th>Count</th>
+                        <th>Total Time</th>
+                        <th>Date & Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if records %}
+                        {% for row in records %}
+                            <tr>
+                                <td>{{ row.id }}</td>
+                                <td>{{ row.name }}</td>
+                                <td>{{ row.exercise_type }}</td>
+                                <td>{{ row.count }}</td>
+                                <td>{{ row.total_time }} sec</td>
+                                <td>{{ row.date_time }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr><td colspan="6">No records found</td></tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

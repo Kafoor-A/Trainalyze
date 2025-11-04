@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+
+  
+  font-family: "Poppins", sans-serif;
+}
+        body {
+            margin: 0;
+            background-image: url('static/register.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Slightly darker glass effect */
+            border-radius: 10px;
+            padding: 30px;
+            width: 350px; /* Reduced width */
+            box-shadow: 0 10px 15px rgb(251 109 0 / 71%); /* Soft pink shadow around the container */
+            backdrop-filter: blur(8px); /* Glass effect */
+            text-align: center;
+            color: #fff; /* White text */
+            margin-left: 600px;
+        }
+
+        h2 {
+            color: #ff7b00; /* Pink color for the heading */
+            margin-bottom: 20px;
+            font-size: 26px; /* Reduced heading size */
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff4e07; /* Pink border */
+            border-radius: 5px;
+            background-color: #333; /* Dark input background */
+            color: #fff;
+            font-size: 14px; /* Smaller font size for inputs */
+            box-sizing: border-box;
+        }
+
+        input[type="text"]::placeholder, input[type="password"]::placeholder {
+            color: #ffffff; /* Pink placeholder text */
+        }
+
+        input[type="submit"] {
+            background-color: #ff7b00; /* Pink submit button */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #cc0038; /* Darker pink on hover */
+        }
+
+        p {
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #ff004c; /* Pink link */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form action="/register" method="post" id="student-reg">
+            <h2>Registration</h2><br>
+            
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <input type="text" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Register">
+            <p>Already have an account? <a href="{{ url_for('login') }}" id="login-link">Login</a>.</p>
+        </form>
+    </div>
+
+</body>
+
+        
+    <script>
+       window.onload = function(){
+        const alert_Message = "{{ alert_message | safe }}";
+        if(alert_Message){
+            alert(alert_Message)
+        }
+       };
+    </script>
+</html>

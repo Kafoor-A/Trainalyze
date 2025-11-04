@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+
+  
+  font-family: "Poppins", sans-serif;
+}
+        body {
+        background-image: url('static/home.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+         margin: 0;
+         padding: 0;
+         color: #333;
+         height: 100vh;
+     }
+ 
+
+     .header {
+         background-color: #000; /* Black background */
+         color: #fff; /* White text */
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 20px 40px;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     }
+ 
+     .header .logo {
+         font-size: 24px;
+         font-weight: bold;
+         color: #ff7b00; /* Highlighted logo text */
+         margin-left: -260px; /* Adds space between profile icon and logo */
+     }
+ 
+     .header .profile-icon {
+         font-size: 30px; /* Medium size for profile icon */
+         color: white;
+         margin-right: 10px; /* Adds space between icon and nav links */
+         cursor: pointer;
+     }
+ 
+     .header nav a {
+         text-decoration: none;
+         color: white;
+         margin: 0 15px;
+         font-size: 16px;
+         font-weight: bold;
+     }
+ 
+     .header .login-btn {
+         background-color: #ff7b00; /* Red button */
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         font-size: 16px;
+     }
+ 
+     header a:hover {
+         text-decoration: underline;
+     }
+ 
+     @media (max-width: 768px) {
+         .header {
+             flex-direction: column;
+             align-items: flex-start;
+         }
+ 
+         .header .logo {
+             margin-left: 0; /* Adjust logo margin for smaller screens */
+         }
+     }
+ 
+     
+
+     .container {
+    width: 40%;
+    background: rgba(0, 0, 0, 0.6); /* Transparent black background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    padding: 20px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    color: white; /* White text for readability */
+    text-align: center;
+}
+
+/* Style input fields */
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2); /* Slight transparency */
+    color: white;
+    font-size: 16px;
+}
+
+/* Input placeholder color */
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Style the button */
+button {
+    background: #ff7b00; /* Red button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #cc003f; /* Darker red on hover */
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+}
+.container h2{
+    color: #ff7b00;
+}
+ 
+ </style>
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#" onclick="toggleProfileDetails()">
+            
+        </a>
+        
+        <div class="logo">Gym</div>
+    
+        <nav>
+            <a href="#" onclick="showRegistrationForm()">Candidate Register</a>  
+            <a href="/verification">Candidate Verification</a> 
+			<a href="/history">Candidate History</a> 			
+        </nav>
+        <a href="/">
+            <button class="login-btn">Logout</button>
+        </a>
+    </div>
+
+    <div class="container" id="registrationForm" style="display: none;">
+        <h2>User Registration</h2>
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            <input type="text" id="phone" name="phone" placeholder="Phone" required>
+
+            <textarea id="address" name="address" placeholder="Address" required></textarea>
+
+            <button type="button" id="capture">Capture Image</button>
+            
+            <input type="hidden" id="imageName" name="image_name">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+   
+
+    <script>
+        function showRegistrationForm() {
+            document.getElementById("registrationForm").style.display = "block";
+        }
+
+        document.getElementById("capture").addEventListener("click", function() {
+            let userName = document.getElementById("name").value;
+            if (!userName) {
+                alert("Enter your name before capturing!");
+                return;
+            }
+            fetch(`/capture?name=${userName}`).then(response => {
+                if (response.ok) {
+                    alert("Image Captured Successfully!");
+                    document.getElementById("imageName").value = userName + ".jpg";
+                } else {
+                    alert("Failed to capture image.");
+                }
+            });
+        });
+    </script>
+    <script>
+        window.onload = function(){
+            const alrertMessage = "{{alert_message | safe}}" ;
+            if(alrertMessage){
+                alert(alrertMessage)
+            }
+
+        };
+    </script>
+
+</body>
+</html>

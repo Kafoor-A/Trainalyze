@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+
+  
+  font-family: "Poppins", sans-serif;
+}
+        body {
+            margin: 0;
+            background-image: url('static/register.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; 
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7); 
+            border-radius: 10px;
+            padding: 30px;
+            width: 350px; 
+            box-shadow: 0 10px 15px rgb(251 109 0 / 71%); 
+            backdrop-filter: blur(8px); 
+            text-align: center;
+            color: #fff;
+            margin-left: 600px;
+        }
+
+        h2 {
+            color: #ff7b00; /* Pink for the heading */
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ff4e07; /* Pink border */
+            border-radius: 5px;
+            background-color: #333; /* Dark background for inputs */
+            color: #fff;
+            font-size: 14px; /* Adjusted font size */
+        }
+
+        input[type="text"]::placeholder, input[type="password"]::placeholder {
+            color: #ffffff; /* Pink placeholder text */
+        }
+
+        input[type="submit"] {
+            background-color: #ff7b00; /* Pink button */
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #cc0038; /* Slightly darker pink on hover */
+        }
+
+        p {
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #ff004c; /* Pink links */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <br>
+        <div id="login" class="visible">
+            <form action="/login" method="POST">
+                <input type="text" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </form>
+            <p>Don't have an account? <a href="/register">Register here</a>.</p>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+         const alert_Message = "{{ alert_message | safe }}";
+         if(alert_Message){
+             alert(alert_Message)
+         }
+        };
+     </script>
+</body>
+</html>
