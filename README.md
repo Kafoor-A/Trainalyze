@@ -163,7 +163,7 @@ Access the system at: http://localhost:5000
 📜 License
 
 This project is open-source under the MIT License — you’re free to use, modify, and distribute it with proper attribution.
-See the LICENSE file for more details.
+See the [LICENSE](./LICENSE) file for more details.
 
 ---
 ⭐ Show your support
