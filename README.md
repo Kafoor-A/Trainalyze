@@ -35,17 +35,45 @@ It identifies workout types, tracks performance, and provides progress insights 
 ---
 
 ## 🧩 Project Structure
+
+```
 Trainalyze/
 │
-├── dataset/ # Training and test datasets
-├── models/ # YOLO model configurations
-├── esp32/ # ESP32 code for data collection
-├── static/ # Frontend assets (CSS, images)
-├── templates/ # Flask HTML templates
-├── main.py # Main application entry point
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation
-└── LICENSE # MIT License file
+├── main.py                     # Main entry point for the application
+├── requirements.txt             # Python dependencies
+├── README.md                    # Project documentation
+│
+├── /models/                     # YOLO models and training files
+│   ├── yolov8n.pt
+│   └── custom_training.py
+│
+├── /dataset/                    # Training and testing datasets
+│   ├── images/
+│   └── labels/
+│
+├── /modules/                    # Core project modules
+│   ├── detection.py             # YOLO detection logic
+│   ├── tracking.py              # Person/workout tracking logic
+│   ├── analytics.py             # Workout analytics computation
+│   └── firebase_utils.py        # Firebase database connection and upload
+│
+├── /templates/                  # Flask HTML templates
+│   ├── index.html               # Home dashboard
+│   ├── trainer.html             # Trainer interface
+│   └── user.html                # User view
+│
+├── /static/                     # Static assets (CSS, JS, images)
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   └── images/
+│       └── logo.png
+│
+└── /esp32/                      # Hardware integration files
+    ├── esp32_script.ino         # ESP32 data upload code
+    └── sensors/                 # Sensor interfacing scripts
+```
 
 
 ---
