@@ -58,3 +58,13 @@ pip install -r requirements.txt
 
 # Run the main script
 python main.py
+---
+
+## 📜 License
+
+This project is open-source under the **MIT License** — you’re free to use, modify, and distribute it with proper attribution.
+
+See the [LICENSE](./LICENSE) file for more details.
+
+---
+
