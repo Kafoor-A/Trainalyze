@@ -125,7 +125,7 @@ Access the system at: http://localhost:5000
 
 5. Dashboard: Displays analytics for trainers and members
 
-
+```
 🧾 Example Firebase Data
 {
   "user_id": "USR123",
@@ -135,7 +135,8 @@ Access the system at: http://localhost:5000
   "calories_burned": 25,
   "timestamp": "2025-11-05T18:30:00Z"
 }
-
+```
+---
 📊 Future Enhancements
  - 🧠 Add pose estimation using MediaPipe
  - 📱 Mobile app interface for trainers and users
@@ -143,6 +144,7 @@ Access the system at: http://localhost:5000
  - ☁️ Integration with Google Fit / Apple Health
  - 📈 Advanced analytics dashboard using Plotly or Dash
 
+---
 🧑‍💻 Developed With
  - Python for backend logic and AI integration
  - YOLOv8 + OpenCV for computer vision
@@ -150,6 +152,7 @@ Access the system at: http://localhost:5000
  - Flask for lightweight web server
  - ESP32 for sensor-based data input
 
+---
 🏁 Quick Start
 
 1. Clone the repo (git clone https://github.com/Kafoor-A/Trainalyze.git)
