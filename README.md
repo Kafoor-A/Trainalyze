@@ -8,14 +8,13 @@ It identifies workout types, tracks performance, and provides progress insights 
 ---
 
 ## 🚀 Features
-
-✅ Real-time person detection and motion tracking  
-✅ Automatic exercise recognition using YOLOv8  
-✅ Individual workout performance analytics  
-✅ Trainer dashboard for client monitoring  
-✅ Cloud-based progress tracking and history  
-✅ ESP32 integration for sensor-based gym data collection  
-✅ User and Trainer portal for accessing reports  
+ - ✅ Real-time person detection and motion tracking  
+ - ✅ Automatic exercise recognition using YOLOv8  
+ - ✅ Individual workout performance analytics  
+ - ✅ Trainer dashboard for client monitoring  
+ - ✅ Cloud-based progress tracking and history  
+ - ✅ ESP32 integration for sensor-based gym data collection  
+ - ✅ User and Trainer portal for accessing reports  
 
 ---
 
@@ -138,18 +137,18 @@ Access the system at: http://localhost:5000
 }
 
 📊 Future Enhancements
--🧠 Add pose estimation using MediaPipe
--📱 Mobile app interface for trainers and users
--📤 Export workout history as PDF reports
--☁️ Integration with Google Fit / Apple Health
--📈 Advanced analytics dashboard using Plotly or Dash
+ - 🧠 Add pose estimation using MediaPipe
+ - 📱 Mobile app interface for trainers and users
+ - 📤 Export workout history as PDF reports
+ - ☁️ Integration with Google Fit / Apple Health
+ - 📈 Advanced analytics dashboard using Plotly or Dash
 
 🧑‍💻 Developed With
--Python for backend logic and AI integration
--YOLOv8 + OpenCV for computer vision
--Firebase for cloud database and analytics
--Flask for lightweight web server
--ESP32 for sensor-based data input
+ - Python for backend logic and AI integration
+ - YOLOv8 + OpenCV for computer vision
+ - Firebase for cloud database and analytics
+ - Flask for lightweight web server
+ - ESP32 for sensor-based data input
 
 🏁 Quick Start
 
