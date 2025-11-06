@@ -171,6 +171,7 @@ See the LICENSE file for more details.
 If you like this project, don’t forget to star 🌟 the repository!
 
 ---
-Author: Abdul Kafoor
-Department of Electronics and Communication Engineering
-Rajalakshmi Engineering College
+**Author:** Abdul Kafoor  
+**Department of Electronics and Communication Engineering**  
+**Rajalakshmi Engineering College**
+
